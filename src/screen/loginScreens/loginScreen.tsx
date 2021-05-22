@@ -9,15 +9,16 @@ import {
   View,
 } from 'react-native';
 
-const App = () => {
+const LoginScreen: React.FC = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
-        <Text>hello</Text>
+        <Text>login</Text>
       </View>
     </SafeAreaView>
   );
 };
+
 
 const styles = StyleSheet.create({
   container: {
@@ -25,4 +26,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+
+export default LoginScreen;
