@@ -1,17 +1,28 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import store from "../../redux/store";
-import LoginReducer from "../../redux/reducer/LoginReducer";
-import { connect } from "react-redux";
-import { changeDataLogin } from "../../redux/action/LoginAction";
+import store from '../../redux/store';
+import LoginReducer from '../../redux/reducer/LoginReducer';
+import {connect} from 'react-redux';
+import {changeDataLogin, removeDataLogin} from '../../redux/action/LoginAction';
+import CustomButton from '../../compoments/CustomButton';
+import {useNavigation} from '@react-navigation/native';
 
 const Home: React.FC<{
   dataUser: any;
   changeDataLogin: (data: any) => void;
 }> = ({dataUser, changeDataLogin}) => {
+  const navigation = useNavigation();
+  console.log(dataUser.user);
   return (
     <View>
       <Text>Hello {dataUser.user}</Text>
+      <CustomButton
+        lable="Log Out"
+        onPress={() => {
+          navigation.navigate('Login');
+          store.dispatch(removeDataLogin());
+        }}
+      />
     </View>
   );
 };
