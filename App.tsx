@@ -8,12 +8,14 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import LoginScreen from "./src/screen/loginScreens/loginScreen";
+import AppNavigation from "./src/appNavigation";
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
-        <Text>hello</Text>
+        <AppNavigation></AppNavigation>
       </View>
     </SafeAreaView>
   );
