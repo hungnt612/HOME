@@ -16,6 +16,8 @@ const CustomButton: React.FC<CustomBunttonProperties> = ({lable, onPress}) => {
         backgroundColor: 'orange',
         alignItems: 'center',
         justifyContent: 'center',
+        marginVertical:10,
+        marginHorizontal:10,
       }}>
       <Text style={{color: 'white', fontWeight: 'bold'}}>{lable}</Text>
     </TouchableOpacity>

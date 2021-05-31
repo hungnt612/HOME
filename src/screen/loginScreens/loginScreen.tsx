@@ -12,14 +12,14 @@ import * as yup from 'yup';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {Controller, useForm, SubmitHandler} from 'react-hook-form';
 import CustomInput from '../../compoments/CustomInput';
-import CustomButton from '../../compoments/CustomBuntton';
+import CustomButton from '../../compoments/CustomButton';
 import {useNavigation} from '@react-navigation/native';
 import store from '../../redux/store';
 import LoginReducer from '../../redux/reducer/LoginReducer';
 import {
   CHANGE_DATA_LOGIN,
   changeDataLogin,
-} from '../../redux/action/LoginAction';
+} from '../../redux/action/authenticateAction';
 import {connect} from 'react-redux';
 
 interface FormData {
@@ -38,8 +38,7 @@ const LoginScreen: React.FC<{
 
   const onSubmit = (data: FormData) => store.dispatch(changeDataLogin(data));
 
-  console.log(dataUser.user);
-
+  console.log(dataUser);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -68,10 +67,11 @@ const LoginScreen: React.FC<{
             />
           )}
         />
-        <CustomButton lable={'submit'} onPress={handleSubmit(onSubmit)} />
+        <CustomButton lable={'Change'} onPress={handleSubmit(onSubmit)}></CustomButton>
         <CustomButton
-          lable={'move'}
+          lable={'Submit'}
           onPress={() => {
+            handleSubmit(onSubmit);
             navigation.navigate('Home');
           }}
         />
