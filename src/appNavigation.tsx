@@ -5,16 +5,25 @@ import {Provider} from 'react-redux';
 import LoginScreen from './screen/loginScreens/loginScreen';
 import Home from './screen/homeScreen/home';
 import store from './redux/store';
-import LoginReducer from "./redux/reducer/LoginReducer";
+import LoginReducer from './redux/reducer/LoginReducer';
 
 const Stack = createNativeStackNavigator();
-const AppNavigation: React.FC = () => {
+const AppNavigation: React.FC<{
+  dataUser: any;
+  changeDataLogin: (data: any) => void;
+}> = ({dataUser, changeDataLogin}) => {
+  console.log(store.getState().LoginReducer);
   return (
     <NavigationContainer>
       <Provider store={store}>
         <Stack.Navigator>
-          <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="Home" component={Home} />
+          {store.getState().LoginReducer == undefined ? (
+            <Stack.Screen name="Login" component={LoginScreen} />
+          ) : (
+            <>
+              <Stack.Screen name="Home" component={Home} />
+            </>
+          )}
         </Stack.Navigator>
       </Provider>
     </NavigationContainer>
