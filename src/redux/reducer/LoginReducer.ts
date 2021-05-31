@@ -1,4 +1,4 @@
-import {CHANGE_DATA_LOGIN, REMOVE_DATA_LOGIN} from '../action/LoginAction';
+import {CHANGE_DATA_LOGIN, REMOVE_DATA_LOGIN} from '../action/authenticateAction';
 
 const initialValue = {
   userDataLogin: [],

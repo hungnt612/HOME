@@ -19,7 +19,7 @@ import LoginReducer from '../../redux/reducer/LoginReducer';
 import {
   CHANGE_DATA_LOGIN,
   changeDataLogin,
-} from '../../redux/action/LoginAction';
+} from '../../redux/action/authenticateAction';
 import {connect} from 'react-redux';
 
 interface FormData {
